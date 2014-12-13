@@ -72,12 +72,12 @@ echo '<table  border="0" cellpadding="3" cellspacing="0">
 
 		</tr>';
 while($rows=mysql_fetch_array($result)){
-	$ID = $row['id'];
-        				$code = $row['code'];
-						$game = $row['code'];
-$myFolderP = "/".$code."/"."index.php";
+	//$ID = $row['id'];
+        				////$code = $row['code'];
+						//$game = $row['code'];
+//$myFolderP = "/".$code."/"."index.php";
 echo "<tr bgcolor='#FCFCF6'>
- <td> <a href=\"".$rows['id']."/index.php?id=".$rows[ID]."\" style=\"text-decoration:none\">".$rows['code']."</a></td>
+ <td> <a href=\"".$rows['id']."/index.php?id=".$rows['id']."\" style=\"text-decoration:none\">".$rows['code']."</a></td>
 </tr>";
 // Set $color==2, for switching to other color
 

@@ -65,24 +65,29 @@ h1 {margin: 0; margin-bottom: 0px; padding: 8px; color: #ffffff; background-imag
 
 		//
 
-		$sql="SELECT * FROM employee";
-$result=mysql_query($sql);
+				//$sql="SELECT * FROM employee";
+				$sql="SELECT * FROM matchinfo";
+		$result=mysql_query($sql);
 
-// Define $color=1
-$color="1";
+		// Define $color=1
+		$color="1";
 
-echo '<table  border="0" cellpadding="3" cellspacing="0">
-<tr>
+		echo '<table  border="0" cellpadding="3" cellspacing="0">
+		<tr>
 
-		</tr>';
-while($rows=mysql_fetch_array($result)){
+				</tr>';
+		while($rows=mysql_fetch_array($result)){
+			//$ID = $row['id'];
+			//$code = $row['code'];
+			//$game = $row['code'];
+		//$myFolderP = "/".$code."/"."index.php";
+		echo "<tr bgcolor='#FCFCF6'>
+		 <td> <a href=\"../".$rows['id']."/index.php?id=".$rows['id']."\" style=\"text-decoration:none\">".$rows['code']."</a></td>
+		</tr>";
+		// Set $color==2, for switching to other color
 
-echo "<tr bgcolor='#FCFCF6'>
- <td> <a href=\"../$rows[ID]/index.php?id=$rows[ID]\" style=\"text-decoration:none\">".$rows['FirstName']."</a></td>
-</tr>";
-// Set $color==2, for switching to other color
+		}
 
-}
 
 
 
@@ -91,20 +96,16 @@ echo '</table>';
 ?>
 </div>
 
-<div id="content">
-<h3>Match Details </h3>
-<p></p>
-<div class="point">
-<h3></h3>
-<p>
-<head>
+<div id="content" border="0">
+<h3 align="middle"> Match Details </h3>
+<head border="0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Slideshow</title>
     <style type="text/css">
 	body{margin: 0;padding: 0;font: 100% Verdana, Arial, Helvetica, sans-serif;font-size: 14px;}
 	div#gallery{border: 0px #ccc solid;width: 600px;margin: 40px auto;text-align: center;}
-	div#gallery img{margin: 20px;border: 2px #004694 solid;max-width: 70%;
-    max-height: 70%;}
+	div#gallery img{margin: 20px;border: 0px #004694 solid;width: 80%; max_width: 100%;
+    height: 60%;}
 	div#gallery p{color: #004694;}
 	div#gallery div.pn{padding: 10px;margin: 0 5px;border-top: 1px #ccc solid;}
 	a{color:#333;}
@@ -114,7 +115,7 @@ echo '</table>';
 </head>
 <body>
 	<div id="gallery" border="0">
-    	<img src="<?=WEBIMGDIR;?><?=$curr;?>" alt="" />
+    	<img border="0" src="<?=WEBIMGDIR;?><?=$curr;?>" alt="" />
         <p><?=$caption;?></p>
     	<div class="pn"  border="0">
         	<a href="?img=<?=$first;?>">First</a> | <a href="?img=<?=$prev;?>" class="sp">Previous</a><a href="?img=<?=$next;?>">Next</a> | <a href="?img=<?=$last;?>">Last</a>
@@ -150,8 +151,35 @@ echo '</table>';
     <tr>
 
           </tr>
+
 </table >
-  <table align="center" width="863" border="0.1" cellspacing="1" cellpadding="1">
+
+  <table align="center" width="863" border="0" cellspacing="1" cellpadding="1">
+  <TR>
+  		<th align="center"> Match Code </th>
+  		<th align="center"> Match Time </th>
+  		<th align="center"> Match Name </th>
+  		<th align="center"> Match </th>
+  		<th align="center"> Score </th>
+  		<th align="center"> Best Player </th>
+  </TR>
+    <tr>
+      	<td align="center"><?echo $FirstName; ?></td>
+		<td align="center"><?echo $gameDate; ?>    <?echo $gameTime; ?></td>
+		<td align="center"><?echo $LastName; ?></td>
+    	<td align="center"><?echo $teamA; ?> VS <?echo $teamB; ?></td>
+    	<td align="center"><?echo $teamAScore; ?> - <?echo $teamBScore; ?></td>
+    	<td align="center"><?echo $bestPlayer; ?></td>
+	</tr>
+
+<tr> </tr>
+<tr> </tr>
+<tr> </tr>
+    </table>
+
+<!--
+</table >
+  <table align="center" width="863" border="0" cellspacing="1" cellpadding="1">
     <tr>
       <td><strong>Match Code</strong></td>
       <td align="center"><strong>:</strong></td>
@@ -184,18 +212,21 @@ echo '</table>';
 	</tr>
 
     </table>
+-->
 
 <?
 
               }//end of while loop
-?></p>
+?>
+
+<!--
 </div>
 <p>&nbsp;</p>
-
+-->
 </div>
 
 <div id="footer">
-<p>Contact  ::&#091;<a href="#">info@runanubandh.org.in</a>&#093;</p>
+<p>Contact  ::&#091;<a href="#">info@mybasketball.org.in</a>&#093;</p>
 <h5>&nbsp;</h5>
 </div>
 </body>
